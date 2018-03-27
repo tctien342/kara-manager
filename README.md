@@ -15,10 +15,23 @@ An Karaoke Manager's App Source base on ReactJS and Laravel by Student of UIT VN
         2. Nguyễn Chí Vinh - 155201017
         3. #
         4. #
+
 # Environment
     1. Client: Devices that support Javascript ES6 browser
     2. Server: Need all require framework below to run
-# Tech - Require to build
+
+# Tech
+    1. ReactJS as web app core
+    2. Laravel as server core
+    3. MySql as database core
+    4. MaterialUI for page design
+    5. JWT for access api token
+    6. Composer for php's packages managerment
+    7. NodeJS for javascript's packages managerment
+    8. React route for redirect react's component base on path
+    9. HTML5 + CSS3 + JS ES6
+
+# Require to build
     1. PHP >= 7.0
     2. Laravel Framework
     3. NodeJS Framework verion 5~
