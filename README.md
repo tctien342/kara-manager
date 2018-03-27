@@ -5,7 +5,7 @@ An Karaoke Manager's App Source base on ReactJS and Laravel by Student of UIT VN
     1. PHP >= 7.0
     2. Laravel Framework
     3. NodeJS Framework verion 5~
-    4. Include MySql
+    4. MySql
     5. Composer Framework
 # Install introduction
     1. Pull source
