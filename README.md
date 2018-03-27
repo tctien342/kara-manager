@@ -1,6 +1,8 @@
 # Karaoke Manager
 An Karaoke Manager's App Source base on ReactJS and Laravel by Student of UIT VN
 
+![Alt text](https://reactjs.org/logo-og.png)
+
 # Require
     1. PHP >= 7.0
     2. Laravel Framework
