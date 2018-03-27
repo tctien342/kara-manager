@@ -1,2 +1,2 @@
-# kara-manager
-An Karaoke Manager's App Source by Student of UIT VN
+# Karaoke Manager
+An Karaoke Manager's App Source base on ReactJS and Laravel by Student of UIT VN
