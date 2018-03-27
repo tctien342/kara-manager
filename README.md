@@ -7,12 +7,24 @@ An Karaoke Manager's App Source base on ReactJS and Laravel by Student of UIT VN
     An app manager base on web environment so that user dont have to install anything on their computer or smartphone.
     With this app, you can controll your karaoke, manager, staff, room and your money.
     This source is belong to Navi team! Enjoy...
-# Require
+
+# Team info
+    Subject's name: Software Engineering - SE104.I23
+    Member:
+        1. Trần Công Tiến - 15520889
+        2. Nguyễn Chí Vinh - 155201017
+        3. #
+        4. #
+# Environment
+    1. Client: Devices that support Javascript ES6 browser
+    2. Server: Need all require framework below to run
+# Tech - Require to build
     1. PHP >= 7.0
     2. Laravel Framework
     3. NodeJS Framework verion 5~
     4. MySql
     5. Composer Framework
+
 # Install introduction
     1. Pull source
     2. Run 'composer install' in project's folder
