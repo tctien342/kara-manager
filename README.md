@@ -14,7 +14,7 @@ An Karaoke Manager's App Source base on ReactJS and Laravel by Student of UIT VN
         1. Trần Công Tiến - 15520889
         2. Nguyễn Chí Vinh - 155201017
         3. Hoàng Đức Lương - 15520462
-        4. #
+        4. Bành Lê Minh Nhã - 15520562
 
 # Environment
     1. Client: Devices that support Javascript ES6 browser
