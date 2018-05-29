@@ -50,11 +50,9 @@ class WebController extends Controller
     public function login(Request $request){
         $detect = new Mobile_Detect;
         // Check for mobile environment.
-        if ($detect->isMobile() && !$detect->isTablet())
-            return redirect('/');
         if ($request->session()->has('token')){
             if (JWTAuth::setToken($request->session()->get('token'))->authenticate()){
-                return redirect('movies');
+                return redirect('main');
             }
         };
         return view('root');

@@ -18,7 +18,7 @@ export default class Rooms extends Component {
             renderTimeProd: [],
             seltime: 0,
             roomOpenRender: false,
-            renderRoomOrder: []
+            renderRoomOrder: [],
         }
        // this._renderEmptyRoom = this._renderEmptyRoom.bind()
     }
@@ -27,17 +27,23 @@ export default class Rooms extends Component {
     
     componentDidMount(){
         this._dsPhong()
+        this._realtimeds()
         this._renderEmptyRoom()
         this._renderTimeProd()
     }
 
+    _realtimeds(){
+        setTimeout(() => {
+            this._dsPhong()
+            this._realtimeds()
+        }, 60000);
+    }
+
     _dsPhong(state){
-        Common.setLoad(1)
         Common.getData('api/ds_active_bill',(data)=>{
             this.setState({
                 activeRoomData: data
             },()=>this._renderRooms())
-            Common.setLoad(0)
         })
     }
     _renderRooms(){

@@ -12,9 +12,7 @@
 */
 use App\Mail\AuthorizationMail;
 
-Route::get('', function () {
-    return view('root');
-});
+Route::get('','WebController@login');
 Route::any('/doc', function () {
     return view('docs');
 });

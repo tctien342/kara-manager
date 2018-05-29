@@ -4,6 +4,7 @@ import './style.css';
 import {Container, Row, Col} from 'reactstrap';
 import Common from '../../Class/Common';
 import language from '../../language';
+import PaidScreen from '../PaidScreen'
 export default class RoomDetail extends Component {
 
     constructor(props) {
@@ -18,7 +19,8 @@ export default class RoomDetail extends Component {
             count: 0,
             orderView: false,
             addOrderView: false,
-            thisRoom: this.props.room
+            thisRoom: this.props.room,
+            paidScreen: false
         }
 
     }
@@ -44,6 +46,12 @@ export default class RoomDetail extends Component {
     }
 
     componentDidMount() {
+        this._realtimeMoney();
+        this._renderEven();
+        this._renderProd();
+    }
+
+    _realtimeMoney(){
         setTimeout(() => {
             let timeCreate = new Date(this.state.thisRoom.created_at);
             let timeNow = new Date();
@@ -53,10 +61,8 @@ export default class RoomDetail extends Component {
                 giaTien: parseInt(
                     this.state.thisRoom.value + this.state.thisRoom.room.type.ratio * minus * this.state.thisRoom.evens[0].prod.value / 60
                 ) + this.state.giaTienOrder
-            })
+            },()=>this._realtimeMoney())
         }, 1000);
-        this._renderEven();
-        this._renderProd();
     }
 
     _renderEven() {
@@ -162,19 +168,23 @@ export default class RoomDetail extends Component {
     }
 
     _paid(){
-        Common.setLoad(1)
-        Common.postData('api/post_paid_bill',{
-            bill_id: this.state.thisRoom.id,
-            value: this.state.giaTien
-        }, (data2) => {
-            this.props.onBack();
-            Common.setLoad(0)
+        // Common.setLoad(1)
+        // Common.postData('api/post_paid_bill',{
+        //     bill_id: this.state.thisRoom.id,
+        //     value: this.state.giaTien
+        // }, (data2) => {
+        //     this.props.onBack();
+        //     Common.setLoad(0)
+        // })
+        this.setState({
+            paidScreen: true
         })
     }
 
     render() {
         return (
             <Container id="main-container" className="room-detail-body-main-container">
+            {this.state.paidScreen && <PaidScreen room={this.state.thisRoom} onBack={()=>{this.setState({paidScreen: false})}}/>}
                 {
                     this.state.addOrderView && <div className="order-view">
                             <div className="order-view-child">
@@ -338,7 +348,8 @@ export default class RoomDetail extends Component {
                         <Container
                             style={{
                                 height: '100%',
-                                overflow: 'auto'
+                                overflow: 'auto',
+                                paddingBottom: '100px'
                             }}>
                             <Row>
                                 <Col xs='12'>
