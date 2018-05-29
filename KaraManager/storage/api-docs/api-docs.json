@@ -1,0 +1,289 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Terrabook's API",
+    "version": "1.0"
+  },
+  "tags": [
+    {
+      "name": "Default",
+      "description": "Get Configs from server"
+    },
+    {
+      "name": "Author",
+      "description": "Login APIs"
+    },
+    {
+      "name": "Data",
+      "description": "Data APIs"
+    },
+    {
+      "name": "Data Update",
+      "description": "APIs for update data server"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/api/auth/login": {
+      "post": {
+        "tags": [
+          "Author"
+        ],
+        "parameters": [
+          {
+            "name": "User",
+            "in": "body",
+            "description": "Json object from User.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "summary": "Login with social media account",
+        "responses": {
+          "200": {
+            "description": "Login success, return JWT token and user's info"
+          }
+        }
+      }
+    },
+    "/api/get/all_playlist": {
+      "get": {
+        "tags": [
+          "Data"
+        ],
+        "description": "Get all playlists",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Get all playlists success"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/api/get/all_slide": {
+      "get": {
+        "tags": [
+          "Data"
+        ],
+        "description": "Get all slide",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Get all slide success"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/api/get/type_playlist": {
+      "get": {
+        "tags": [
+          "Data"
+        ],
+        "description": "Get playlists of type",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "description": "Type of playlist",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Get playlists success"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/api/get/history": {
+      "get": {
+        "tags": [
+          "Data"
+        ],
+        "description": "Get history of user",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Get history success"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/api/get/favorite": {
+      "get": {
+        "tags": [
+          "Data"
+        ],
+        "description": "Get favorite of user",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Get favorite success"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/api/get/video": {
+      "get": {
+        "tags": [
+          "Data"
+        ],
+        "description": "Get video info",
+        "parameters": [
+          {
+            "name": "video_id",
+            "in": "query",
+            "description": "Video's info",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Get video's info success"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/api/data/update": {
+      "get": {
+        "tags": [
+          "Data Update"
+        ],
+        "description": "Update all playlist data",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Update success"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "User": {
+      "type": "object",
+      "properties": {
+        "tp_id": {
+          "type": "string",
+          "example": "100010"
+        },
+        "tp_token": {
+          "type": "string",
+          "example": "TokenFromFacebookGoogle"
+        },
+        "tp_type": {
+          "type": "string",
+          "enum": [
+            "google",
+            "facebook",
+            "email"
+          ],
+          "example": "email"
+        },
+        "email": {
+          "type": "string",
+          "example": "user@terra.vn"
+        },
+        "password": {
+          "type": "string",
+          "example": "12345"
+        }
+      },
+      "xml": {
+        "name": "User"
+      }
+    }
+  },
+  "securityDefinitions": {
+    "Bearer": {
+      "type": "apiKey",
+      "description": "JWT TOKEN",
+      "name": "Authorization",
+      "in": "header"
+    }
+  }
+}

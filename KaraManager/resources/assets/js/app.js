@@ -1,10 +1,10 @@
-
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes React and other helpers. It's a great starting point while
  * building robust, powerful web applications using React + Laravel.
  */
-
+import 'bootstrap/dist/css/bootstrap.css';
+import './default.css';
 require('./bootstrap');
 
 /**
@@ -13,4 +13,4 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-require('./components/Example');
+require('./router');

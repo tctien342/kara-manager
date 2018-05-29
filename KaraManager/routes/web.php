@@ -10,11 +10,16 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+use App\Mail\AuthorizationMail;
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('', function () {
+    return view('root');
 });
-
-Route::get('/index', function(){
-    return view('index');
+Route::any('/doc', function () {
+    return view('docs');
 });
+Route::get('main','WebController@main');
+Route::get('redirect/{token}','WebController@redirect');
+Route::any('/{any}', function () {
+    return redirect('');
+})->where('any', '.*');

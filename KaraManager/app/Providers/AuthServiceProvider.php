@@ -1,7 +1,9 @@
 <?php
 
-namespace App\Providers;
+namespace KaraManager\Providers;
 
+use Auth;
+use KaraManager\Http\Controllers\Auth\CustomUserProvider;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
@@ -13,7 +15,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        'App\Model' => 'App\Policies\ModelPolicy',
+        'KaraManager\Model' => 'KaraManager\Policies\ModelPolicy',
     ];
 
     /**
@@ -24,7 +26,9 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerPolicies();
-
+        Auth::provider('custom', function($app, array $config) {
+            return new CustomUserProvider();
+        });
         //
     }
 }
