@@ -1,11 +1,11 @@
-.body-main-container{
+.body-main-container {
     width: 100%;
     height: 100%;
     overflow: auto;
     padding: 0;
 }
 
-.logout-button{
+.logout-button {
     position: absolute;
     right: 30px;
     bottom: 30px;
@@ -13,40 +13,47 @@
     width: 120px;
     border-radius: 8px;
     font-size: 16px;
-    opacity: .7;
+    opacity: 0.7;
     z-index: 100;
 }
-.logout-button:hover{
+.logout-button:hover {
     opacity: 1;
-    transform: scale(1.05)
+    transform: scale(1.05);
 }
-.room-container{
+.room-container {
+    /* height: 100%; */
     padding-top: 5%;
     padding-bottom: 10%;
 }
-.room-container h2{
+.room-container h2 {
     width: 100%;
     text-align: center;
     padding-bottom: 5%;
-    opacity: .7;
+    opacity: 0.7;
 }
-.a-room{
+.a-room {
     width: 100%;
     position: relative;
     margin-bottom: 10px;
 }
-.a-room-card{
-    height: 500px;
+.a-room-card {
+    height: 400px;
     width: 100%;
     border-radius: 8px;
     background: white;
-    box-shadow: 0px 0px 10px #ccc;
+    box-shadow: 0 0 10px #ccc;
     border: none;
 }
-.a-room-card p{
+.a-room-card p {
     font-size: 20px;
 }
-.open-room{
+.a-room-card img {
+    width: 50%;
+    object-fit: contain;
+    margin-bottom: 30px;
+    opacity: 0.7;
+}
+.open-room {
     position: absolute;
     right: 30px;
     top: 30px;
@@ -55,7 +62,7 @@
     border-radius: 8px;
     z-index: 100;
 }
-.back-menu{
+.back-menu {
     position: absolute;
     left: 30px;
     top: 30px;
@@ -64,35 +71,35 @@
     border-radius: 8px;
     z-index: 100;
 }
-.room-open-container{
+.room-open-container {
     position: absolute;
-    width: 90%;
-    height: 90%;
+    width: 100%;
+    height: 100%;
     background: white;
     z-index: 100;
-    top: 5%;
+    top: 0%;
     border-radius: 8px;
-    left: 5%;
-    box-shadow: 0px 0px 10px #ccc;
+    left: 0%;
+    box-shadow: 0 0 10px #ccc;
 }
-.room-open-header-left{
+.room-open-header-left {
     padding: 0;
     position: relative;
     border-right: 1px solid #ccc;
     height: 100%;
 }
-.room-open-header-left h1{
+.room-open-header-left h1 {
     width: 100%;
     text-align: center;
     margin-top: 30px;
-    opacity: .8;
+    opacity: 0.8;
     margin-bottom: 30px;
 }
-.room-open-header-left p{
+.room-open-header-left p {
     padding-left: 40px;
     font-size: 15px;
 }
-.room-open-header-left button{
+.room-open-header-left button {
     position: absolute;
     width: 60%;
     margin-left: 20%;
@@ -102,31 +109,32 @@
     font-size: 15px;
     font-weight: 700;
 }
-.room-open-empty{
+.room-open-empty {
     height: 100%;
 }
-.room-open-empty h3{
+.room-open-empty h3 {
     margin-top: 20px;
 }
-.a-empty-room{
+.a-empty-room {
     margin-top: 20px;
     height: max-content;
 }
-.a-empty-room button{
+.a-empty-room button {
     width: 100%;
     height: 200px;
     border-radius: 8px;
     background: white;
 }
-.room-open-header-left .create-button{
-    bottom: 70px;
+.room-open-header-left .create-button {
+    bottom: 90px;
     color: green;
 }
-.room-open-header-left .destroy-button{
-    bottom: 10px;
+.room-open-header-left .destroy-button {
+    bottom: 30px;
     color: red;
 }
-.room-body{
+.room-body {
     display: flex;
     justify-content: center;
+    height: 100%;
 }

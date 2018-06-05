@@ -5,6 +5,7 @@ import {Container, Row, Col} from 'reactstrap';
 import Common from '../../Class/Common';
 import language from '../../language';
 import Rooms from '../../Components/Rooms'
+import setting from '../../setting'
 export default class MainPage extends Component {
 
     constructor(props) {
@@ -30,13 +31,13 @@ export default class MainPage extends Component {
             <div className="body-main-container">
                     <Row><Col xs='12'><p className="header-Text-main">Kara<strong>Manager</strong></p></Col></Row>
                     <Row className="mainRow">
-                        <Col xs='12' md='3'>
+                        {setting.screen.graph && <Col xs='12' md='3'>
                             <button>
                                 <i className="fas fa-chart-line"></i>
                                 <h2>Thống kê</h2>
                             </button>
-                        </Col>
-                        <Col xs='12' md='3'>
+                        </Col>}
+                        {setting.screen.state && <Col xs='12' md='3'>
                             <button onClick={()=>{
                                 this.setState({
                                     renderComponent: <Rooms onBack={()=>{
@@ -49,19 +50,19 @@ export default class MainPage extends Component {
                                 <i className="fas fa-location-arrow"></i>
                                 <h2>Trạng thái các phòng</h2>
                             </button>
-                        </Col>
-                        <Col xs='12' md='3'>
+                        </Col>}
+                        {setting.screen.staff && <Col xs='12' md='3'>
                             <button>
                                 <i className="fas fa-users"></i>
                                 <h2>Nhân viên</h2>
                             </button>
-                        </Col>
-                        <Col xs='12' md='3'>
+                        </Col>}
+                        {setting.screen.container && <Col xs='12' md='3'>
                             <button>
                                 <i className="fas fa-clone"></i>
                                 <h2>Kho hàng</h2>
                             </button>
-                        </Col>
+                        </Col>}
                     </Row>
                 </div>
         )

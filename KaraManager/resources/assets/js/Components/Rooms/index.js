@@ -59,12 +59,11 @@ export default class Rooms extends Component {
             })
             result.push(<Col xs='12' md='3' key={ele.id} className="a-room">
                 <button className="a-room-card" onClick={()=>this._onClickRoom(ele)}>
+                    <img src={require('../../Images/microphone.png')} />
                     <p><strong>{ele.room.name}</strong></p>
                     <p>Tạo bởi: {ele.staff.name}</p>
                     <p>Giờ vào: {ele.created_at}</p>
-                    <p>Đã hát: {minus} Phút</p>
                     <p>Tạm tính: <strong>{parseInt(ele.value + minus*ele.evens[0].prod.value/60)*ele.room.type.ratio + money}đ</strong></p>
-                    <p>Gói giá: {ele.evens[0].prod.name}</p>
                 </button>
             </Col>)
         });
@@ -174,7 +173,7 @@ export default class Rooms extends Component {
                                     this.setState({
                                         roomOpenRender: false
                                     })
-                                }}>Hủy</button>
+                                }}>Trở lại</button>
                             </Col>
                             <Col xs='12' md='9' className="room-open-empty">
                                 <Container style={{height:'100%', overflow: 'auto', paddingBottom: '100px'}}>
