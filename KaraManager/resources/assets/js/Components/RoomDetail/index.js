@@ -16,6 +16,7 @@ export default class RoomDetail extends Component {
             renderEven: [],
             renderProd: [],
             selEven: 0,
+            selName: '',
             count: 0,
             orderView: false,
             addOrderView: false,
@@ -81,7 +82,7 @@ export default class RoomDetail extends Component {
                             <Col xs='4' md='3' key={ele.id} className="a-empty-room">
                                 <button
                                     onClick={() => {
-                                        this.setState({selEven: ele.id, count: ele.number, orderView: true})
+                                        this.setState({selEven: ele.id, selName: ele.prod.name, count: ele.number, orderView: true})
                                     }}>
                                     <h3>{ele.prod.name}</h3>
                                     <h5>{ele.number}
@@ -114,7 +115,7 @@ export default class RoomDetail extends Component {
                     <Col xs='4' md='3' key={ele.id} className="a-empty-room">
                         <button
                             onClick={() => {
-                                this.setState({selEven: ele.id, count: 0, addOrderView: true})
+                                this.setState({selEven: ele.id, selName: ele.name ,ount: 0, addOrderView: true})
                             }}>
                             <h3>{ele.name}</h3>
                             <h5>Còn {ele.count}
@@ -179,12 +180,16 @@ export default class RoomDetail extends Component {
         this.setState({
             paidScreen: true
         })
-    }
+      }
 
     render() {
         return (
             <Container id="main-container" className="room-detail-body-main-container">
-            {this.state.paidScreen && <PaidScreen room={this.state.thisRoom} onBack={()=>{this.setState({paidScreen: false})}}/>}
+            {this.state.paidScreen && <PaidScreen room={this.state.thisRoom} time={this.state.thoiGianHat} onBack={()=>{this.setState({paidScreen: false})}} onPaid={()=>{
+                this.setState({
+                    paidScreen: false
+                },()=>this.props.onBack())
+            }}/>}
                 {
                     this.state.addOrderView && <div className="order-view">
                             <div className="order-view-child">
@@ -193,6 +198,11 @@ export default class RoomDetail extends Component {
                                         height: '100%'
                                     }}
                                     className='order-view-container'>
+                                    <Row>
+                                        <Col xs='12'>
+                                            <h4 style={{width: '100%', textAlign: 'center', marginTop:'10px', marginBottom: '10px'}}>{this.state.selName}</h4>
+                                        </Col>
+                                    </Row>
                                     <Row
                                         style={{
                                             width: '100%'
@@ -250,6 +260,11 @@ export default class RoomDetail extends Component {
                                         height: '100%'
                                     }}
                                     className='order-view-container'>
+                                    <Row>
+                                        <Col xs='12'>
+                                            <h4 style={{width: '100%', textAlign: 'center', marginTop:'10px', marginBottom: '10px'}}>{this.state.selName}</h4>
+                                        </Col>
+                                    </Row>
                                     <Row
                                         style={{
                                             width: '100%'
