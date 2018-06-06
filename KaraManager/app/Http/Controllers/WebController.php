@@ -7,8 +7,17 @@ use JWTAuth;
 use JWTFactory;
 use JWTAuthException;
 use Mobile_Detect;
+use KaraManager\Repositories\Contracts\ProductRepositoryInterface;
 class WebController extends Controller
 {
+    //product and init
+    protected $productRepository;
+
+    public function __construct(ProductRepositoryInterface $productRepository)
+    {
+        $this->productRepository = $productRepository;
+    }
+    /********************************* */
     public function redirect($token, Request $request){
         try {
             if (!$user = JWTAuth::setToken($token)->authenticate()){
@@ -64,5 +73,26 @@ class WebController extends Controller
             $request->session()->forget('token');
         };
         return redirect('/');
+    }
+
+    public function productStatistical(Request $request){
+        if($request->input('time')){
+            $str = $request->input('time');
+            $time = date($str);
+            $result = $this->productRepository->findOneDay($time);
+        }
+        elseif($request->input('timefrom')){
+            $str = $request->input('timefrom');
+            $time = date($str);
+            $result = $this->productRepository->findFromDay($time);
+        }
+        else{
+            $str_start = $request->input('from');
+            $str_end = $request->input('to');
+            $time_start = date($str_start);
+            $time_end = date($str_end);
+            $result = $this->productRepository->findFromToDay($time_start,$time_end);
+        }
+        return response()->json(Common::makeResponse('SUCCESS',['data'=>$result],'get success'));
     }
 }

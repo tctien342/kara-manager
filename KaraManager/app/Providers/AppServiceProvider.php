@@ -27,5 +27,9 @@ class AppServiceProvider extends ServiceProvider
             'KaraManager\Repositories\Contracts\UserRepositoryInterface',
             'KaraManager\Repositories\Eloquents\UserRepository'
         );
+        $this->app->bind(
+            'KaraManager\Repositories\Contracts\ProductRepositoryInterface',
+            'KaraManager\Repositories\Eloquents\ProductRepository'
+        );
     }
 }

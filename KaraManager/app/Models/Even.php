@@ -8,8 +8,8 @@ class Even extends Model
 {
     protected $table = 'evens';
     protected $primaryKey = 'id';
-    protected $hidden = ['updated_at','created_at'];
-    protected $fillable = ['staff_id','number','prod_id','bill_id'];
+    protected $hidden = ['updated_at'];
+    protected $fillable = ['staff_id','number','prod_id','bill_id','created_at'];
 
     public function staff(){
         return $this->belongsTo('KaraManager\Models\Staff','staff_id', 'id');
