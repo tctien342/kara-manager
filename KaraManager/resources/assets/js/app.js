@@ -4,7 +4,6 @@
  * building robust, powerful web applications using React + Laravel.
  */
 import 'bootstrap/dist/css/bootstrap.css';
-import './default.css';
 require('./bootstrap');
 
 /**
@@ -13,4 +12,4 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-require('./router');
+require('./index');

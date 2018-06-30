@@ -18,6 +18,3 @@ Route::any('/doc', function () {
 });
 Route::get('main','WebController@main');
 Route::get('redirect/{token}','WebController@redirect');
-Route::any('/{any}', function () {
-    return redirect('');
-})->where('any', '.*');

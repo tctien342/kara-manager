@@ -1,0 +1,40 @@
+#headerContainer{
+    width: 100px;
+    height: 100%;
+    background: #777;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    z-index: 100;
+    transition: all .3s ease-in-out;
+    left: 0px;
+}
+.headerButton{
+    width: 100px;
+    height: 100px;
+    background: transparent;
+    transition: all .3s ease-in-out;
+}
+.headerButton:hover{
+    cursor: pointer;
+}
+.headerButton:active{
+    background: #ccc;
+}
+.headerButton:active i{
+    color: white;
+}
+.headerButton i{
+    font-size: 1.6rem;
+    color: white;
+}
+.active{
+    background: white;
+}
+.active i{
+    color: black;
+}
+.logoutButton{
+    position: absolute;
+    bottom: 0;
+}

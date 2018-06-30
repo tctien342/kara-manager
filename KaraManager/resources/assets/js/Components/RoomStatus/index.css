@@ -1,0 +1,93 @@
+#roomStatus{
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-bottom: 50px;
+}
+.roomStatusTitle{
+    height: 100px;
+    display: flex;
+    align-items: center;
+}
+.roomStatusTitle h1{
+    opacity: .7;
+}
+.aroomContainer{
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    transition: all .3s ease-in-out;
+}
+.aroomContainer:hover{
+    cursor: pointer;
+}
+.aroomContainer:active{
+    transform: scale(0.95)
+}
+.roomActive{
+    padding: 20px;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    background: #3cc18f;
+}
+.roomActive .row{
+    height: 100%;
+}
+.roomEmpty{
+    padding: 20px;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    background: #ccc
+}
+.roomEmpty .row{
+    height: 100%;
+}
+.roomEmpty i{
+    position: absolute;
+    color: white;
+    position: absolute;
+    bottom: 0;
+    right: 15px;
+    font-size: 3rem;
+    font-weight: 900;
+}
+.contentInfo{
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.contentInfo h1{
+    color: white;
+    font-size: 3rem;
+}
+.contentInfo h2{
+    color: white;
+    position: absolute;
+    bottom: 0;
+    right: 15px;
+    font-size: 3rem;
+    font-weight: 900;
+}
+.contentInfo h3{
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 15px;
+    font-size: 3rem;
+    font-weight: 100;
+}
+.timeProdCardIndex{
+    color: white;
+    position: absolute;
+    top: 7px;
+    right: 15px;
+    font-size: 2rem !important;
+    font-weight: 100;
+}

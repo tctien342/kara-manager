@@ -32,7 +32,7 @@ class WebController extends Controller
         }
         $request->session()->put('token', $token);
         $request->session()->save();
-        return redirect('main');
+        return redirect('/');
     }
 
     public function main(Request $request){
@@ -43,15 +43,18 @@ class WebController extends Controller
         // }else{
             if ($request->session()->has('token')){
                 if (!JWTAuth::setToken($request->session()->get('token'))->authenticate()){
-                    return redirect('/');
+                    $view = view('root');
+                    return $view;
+                }else{
+                    $view = view('root',[
+                        'token' => $request->session()->get('token')
+                    ]);
+                    return $view;
                 }
             }else{
-                return redirect('/');
-            };
-            $view = view('root',[
-                'token' => $request->session()->get('token')
-            ]);
-            return $view;
+                $view = view('root');
+                return $view;
+            }
         // }
     }
 
@@ -71,7 +74,7 @@ class WebController extends Controller
         if ($request->session()->has('token')){
             JWTAuth::setToken($request->session()->get('token'))->invalidate();
             $request->session()->forget('token');
-        };
+        }      
         return redirect('/');
     }
 

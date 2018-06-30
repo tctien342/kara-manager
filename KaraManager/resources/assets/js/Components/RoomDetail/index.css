@@ -1,0 +1,32 @@
+.aDetail{
+    height: 200px;
+    padding: 10px;
+}
+.aDetail div{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: #3cc18f;
+}
+.aDetail h1, .aDetail h2{
+    color: white
+}
+.aDetail h1{
+    font-weight: 100;
+}
+.aDetail h2{
+    font-size: 2.3rem;
+}
+.order div{
+    background: #ccc;
+    transition: all .3s ease-in-out;
+}
+.order div:hover{
+    cursor: pointer;
+}
+.order div:active{
+    transform: scale(0.95)
+}

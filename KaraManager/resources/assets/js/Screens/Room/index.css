@@ -1,0 +1,9 @@
+#RoomContainer{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    padding-left: 100px;
+}
+#roomContent{
+    max-width: 100%;
+}

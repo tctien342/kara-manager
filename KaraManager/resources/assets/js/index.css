@@ -1,0 +1,19 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+  position: relative;
+}
+html,body{
+  overflow: hidden;
+  height: 100%;
+}
+#root, #BodyContainer{
+  overflow: hidden;
+}
+button{
+  border: none
+}
+button:hover, button:active, button:focus{
+  outline: 0 !important;
+  border: none;
+}

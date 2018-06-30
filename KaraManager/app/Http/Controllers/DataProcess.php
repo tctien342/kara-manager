@@ -16,7 +16,11 @@ use KaraManager\Http\Controllers\Common;
 class DataProcess extends Controller
 {
     public function get_ds_phong(){
-        return response()->json(Common::makeResponse('SUCCESS',Room::all(),'DS ROOM'));
+        $rooms = Room::all();
+        foreach ($rooms as $key => $value) {
+            $value->type;
+        }
+        return response()->json(Common::makeResponse('SUCCESS',$rooms,'DS ROOM'));
     }
 
     public function get_ds_bill(){

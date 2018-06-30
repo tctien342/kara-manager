@@ -38,6 +38,6 @@ Route::group(['middleware' => 'jwt.auth'], function () {
 	Route::post('post_paid_bill','DataProcess@post_paid_bill');
 });
 //PUBLIC API
-Route::get('product/statistical','WebController@productStatistical');
+Route::get('statistical','WebController@productStatistical');
 //API LOGOUT
-	Route::get('logout','WebController@logout');
+Route::get('logout','WebController@logout');

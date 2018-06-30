@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'TerraBook'),
+    'name' => env('APP_NAME', 'KaraManager'),
 
     /*
     |--------------------------------------------------------------------------

@@ -19,12 +19,12 @@ class CreateBillsTable extends Migration
             $table->integer('staff_id')->unsigned();
             $table->integer('room_id')->unsigned();
             $table->integer('state')->default(0);
-            $table->timestamps('paid_at')->nullable();
+            $table->date('paid_at')->nullable();
             $table->timestamps();
 
              //Foreign
              $table->foreign('staff_id')->references('id')->on('staff');
-             $table->foreign('room_id')->references('id')->on('room');
+             $table->foreign('room_id')->references('id')->on('rooms');
         });
     }
 
