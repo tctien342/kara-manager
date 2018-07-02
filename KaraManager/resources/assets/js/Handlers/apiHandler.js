@@ -11,7 +11,9 @@ export default class ApiHandler {
             ds_prod: 'api/get_all_prod',
             get_bill: 'api/get_bill?',
             get_stat: 'api/statistical',
-            logout : 'api/logout'
+            logout : 'api/logout',
+            room_type: 'api/get_room_types',
+            month: 'api/get_month?'
         }
         this.list_post = {
             make_bill: 'api/post_make_bill',
@@ -19,7 +21,11 @@ export default class ApiHandler {
             add_even: 'api/post_add_even',
             paid_bill: 'api/post_paid_bill',
             add_prod: 'api/post_add_prod',
-            edit_prod: 'api/post_edit_prod'
+            edit_prod: 'api/post_edit_prod',
+            edit_room_type: 'api/post_edit_type_room',
+            edit_room: 'api/post_edit_room',
+            add_type_room:'api/post_add_type_room',
+            add_room: 'api/post_add_room'
         }
         this.manager.update.api = true
     }

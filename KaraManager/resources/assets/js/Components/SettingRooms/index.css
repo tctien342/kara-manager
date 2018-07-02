@@ -1,0 +1,13 @@
+.roomSettingTypeTitle h1{
+    opacity: .7;
+    font-size: 1.9rem;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+.activeAProd div{
+    background: white !important;
+    border: 1px solid #3cc18f;
+}
+.activeAProd h1, .activeAProd h2{
+    color: #3cc18f;
+}

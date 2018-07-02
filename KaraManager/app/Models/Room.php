@@ -9,7 +9,7 @@ class Room extends Model
     protected $table = 'rooms';
     protected $primaryKey = 'id';
     protected $hidden = ['updated_at','created_at'];
-    protected $fillable = ['name','type_id', 'state'];
+    protected $fillable = ['name','type_id', 'state','active'];
 
     public function type(){
         return $this->belongsTo('KaraManager\Models\RoomType','type_id', 'id');

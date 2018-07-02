@@ -18,8 +18,11 @@
     flex-direction: column;
     align-items: center;
 }
-.customCard h1, .customCard h3{
+.customCard h1, .customCard h3, .customCard h2{
     color: white
+}
+.customCard h2{
+    font-size: 4rem;
 }
 .customCard h1{
     font-size: 7rem;

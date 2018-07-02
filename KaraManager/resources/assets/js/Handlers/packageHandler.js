@@ -2,6 +2,8 @@ import content from '../Assert/Js/content'
 import setting from '../Assert/Js/setting'
 import InStock from '../Components/InStock'
 import TimeProd from '../Components/TimeProd'
+import RoomSetting from '../Components/SettingRooms'
+import Staf from '../Components/UserSetting'
 import React from 'react'
 export default class PackageHandler{
     constructor(screen,manager){
@@ -12,8 +14,8 @@ export default class PackageHandler{
         this.screenlist = {
             kho: <InStock handler={this}/>,
             time: <TimeProd handler={this}/>,
-            room: <InStock handler={this}/>,
-            staf: <InStock handler={this}/>
+            room: <RoomSetting handler={this}/>,
+            staf: <Staf handler={this}/>
         }
     }
 

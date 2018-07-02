@@ -11,11 +11,15 @@
     text-align: left;
     width: 100%;
     padding-left: 10px;
+    padding-right: 10px;
     font-size: 2.3rem;
     border: 1px solid #ccc;
 }
-.aProd{
+.aProd{  
     transition: all .3s ease-in-out;
+}
+.aProd h1, .aProd h2{
+    text-align: center;
 }
 .aProd:hover{
     cursor: pointer;

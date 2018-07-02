@@ -18,6 +18,7 @@ class CreateRoomsTable extends Migration
             $table->string('name');
             $table->integer('type_id')->unsigned();
             $table->integer('state')->default(0);
+            $table->integer('active')->default(1);
             $table->timestamps();
 
             //Foreign

@@ -17,6 +17,7 @@ class CreateRoomTypesTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->float('ratio')->default(1);
+            $table->integer('active')->default(1);
             $table->timestamps();
         });
     }

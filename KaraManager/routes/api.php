@@ -33,11 +33,17 @@ Route::group(['middleware' => 'jwt.auth'], function () {
 	Route::get('get_all_prod','DataProcess@get_all_prod');
 	Route::get('get_room','DataProcess@get_room');
 	Route::get('get_bill','DataProcess@get_bill');
+	Route::get('get_room_types','DataProcess@get_room_types');
+	Route::get('get_month','DataProcess@get_value_month');
 	Route::post('post_edit_even','DataProcess@post_edit_even');
 	Route::post('post_add_even','DataProcess@post_add_even');
 	Route::post('post_paid_bill','DataProcess@post_paid_bill');
 	Route::post('post_add_prod','DataProcess@post_add_prod');
 	Route::post('post_edit_prod','DataProcess@post_edit_prod');
+	Route::post('post_edit_type_room','DataProcess@post_edit_type_room');
+	Route::post('post_edit_room','DataProcess@post_edit_room');
+	Route::post('post_add_type_room','DataProcess@post_add_type_room');
+	Route::post('post_add_room','DataProcess@post_add_room');
 });
 //PUBLIC API
 Route::get('statistical','WebController@productStatistical');

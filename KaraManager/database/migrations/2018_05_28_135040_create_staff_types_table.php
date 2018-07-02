@@ -17,6 +17,7 @@ class CreateStaffTypesTable extends Migration
             $table->increments('id');
             $table->integer('salary')->default(0);
             $table->string('name');
+            $table->integer('active')->default(1);
             $table->timestamps();
         });
     }

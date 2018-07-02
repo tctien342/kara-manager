@@ -106,6 +106,21 @@ export default class TimeProd extends React.Component {
         })
     }
 
+    delProd(){
+        let api = this.handler.manager.api
+        if (this.state.name && this.state.value > 0)
+        api.call_post('edit_prod',{
+            prod_id: this.state.prod_id,
+            name: this.state.name,
+            value: 0,
+            is_time: 0
+        },(data)=>{
+            this.setState({
+                edit: false
+            },()=>api.initApi(()=>this.initProd()))
+        })
+    }
+
     render() {
         return (
             <div id="roomStatus">
@@ -142,6 +157,7 @@ export default class TimeProd extends React.Component {
                                 </div>
                             </div>
                             <button key="ok" onClick={()=>this.editProd()} className="okButton settingButton">OK</button>,
+                            <button key="del" onClick={()=>this.delProd()} className="delButton settingButton">Xóa</button>,
                             <button key="cancle" onClick={()=>this.setState({edit: false})} className="huyButton settingButton">Hủy</button>
                         </div>
                 </div>}

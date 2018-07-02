@@ -11,7 +11,7 @@ class Staff extends Model implements Authenticatable,JWTSubject
     protected $table = 'staff';
     protected $primaryKey = 'id';
     protected $hidden = ['updated_at','remember_token','pass'];
-    protected $fillable = ['name','email','phone','cmnd','adress', 'type_id', 'created_at'];
+    protected $fillable = ['name','email','phone','cmnd','adress', 'type_id','active', 'created_at'];
 
     public function type(){
         return $this->belongsTo('KaraManager\Models\StaffType','type_id', 'id');

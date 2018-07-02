@@ -23,6 +23,7 @@ class CreateStaffTable extends Migration
             $table->string('pass')->default('123456');
             $table->integer('type_id')->unsigned();
             $table->string('remember_token')->nullable();
+            $table->integer('active')->default(1);
             $table->timestamps();
 
             //Foreign

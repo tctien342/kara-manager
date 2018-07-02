@@ -7,7 +7,7 @@ export default class App extends React.Component {
 
     constructor(props){
         super(props);
-        this.state = {pos: 'home', header: false, login: true, hours: new Date().getHours(), minutes: new Date().getMinutes()}
+        this.state = {pos: '', header: false, login: true, hours: new Date().getHours(), minutes: new Date().getMinutes()}
         this.handler = new screenHandler(this)
     }
 

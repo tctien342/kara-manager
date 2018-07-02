@@ -9,7 +9,7 @@ class RoomType extends Model
     protected $table = 'room_types';
     protected $primaryKey = 'id';
     protected $hidden = ['updated_at','created_at'];
-    protected $fillable = ['name','ratio'];
+    protected $fillable = ['name','ratio','active'];
 
     public function rooms(){
         return $this->hasMany('KaraManager\Models\Room','type_id','id');

@@ -88,11 +88,10 @@ export default class ScreenHandler{
             this.api.updateAPI()
             document.getElementById('loginContainer').style.opacity = 0
             setTimeout(()=>{
-                console.log(this.data)
                 this.screen.setState({
                     login: false,
                     header: true,
-                },()=>this.onChangePos('package'))
+                },()=>this.onChangePos('home'))
             },300)
         }
     }

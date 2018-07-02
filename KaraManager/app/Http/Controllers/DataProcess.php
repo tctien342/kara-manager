@@ -8,6 +8,7 @@ use JWTFactory;
 use JWTAuthException;
 use Carbon\Carbon;
 use KaraManager\Models\Room;
+use KaraManager\Models\RoomType;
 use KaraManager\Models\Bill;
 use KaraManager\Models\Product;
 use KaraManager\Models\Even;
@@ -16,7 +17,7 @@ use KaraManager\Http\Controllers\Common;
 class DataProcess extends Controller
 {
     public function get_ds_phong(){
-        $rooms = Room::all();
+        $rooms = Room::where('active', 1)->get();
         foreach ($rooms as $key => $value) {
             $value->type;
         }
@@ -38,7 +39,9 @@ class DataProcess extends Controller
     }
 
     public function get_empty_room(){
-        $rooms = Room::where('state', 0)->get();
+        $rooms = Room::where([
+            ['state', 0],
+            ['active',1]])->get();
         foreach ($rooms as $key => $value) {
             $value->type;
         }
@@ -46,7 +49,10 @@ class DataProcess extends Controller
     }
 
     public function get_time_prod(){
-        return response()->json(Common::makeResponse('SUCCESS',Product::where('is_time',1)->get(),'DS time prods'));
+        return response()->json(Common::makeResponse('SUCCESS',Product::where([
+            ['is_time',1],
+            ['active',1]
+        ])->get(),'DS time prods'));
     }
 
     public function post_make_bill(Request $request){
@@ -75,7 +81,10 @@ class DataProcess extends Controller
     }
 
     public function get_all_prod(){
-        return response()->json(Common::makeResponse('SUCCESS',Product::where('is_time',0)->get(),'DS prods'));
+        return response()->json(Common::makeResponse('SUCCESS',Product::where([
+            ['is_time',0],
+            ['active',1]
+        ])->get(),'DS prods'));
     }
 
     public function post_edit_even(Request $request){
@@ -170,7 +179,8 @@ class DataProcess extends Controller
         if (!$prod) return response()->json(Common::makeResponse('ERROR',[],'Product not found'));
         if ($prod->is_time == 1){
             if ($data->is_time == 0){
-                $prod->delete();
+                $prod->active = 0;
+                $prod->save();
                 return response()->json(Common::makeResponse('SUCCESS',[],'Time deleted'));
             }else{
                 $prod->name = $data->name;
@@ -179,8 +189,9 @@ class DataProcess extends Controller
                 return response()->json(Common::makeResponse('SUCCESS',$prod,'Time edited'));
             }
         }else{
-            if ($data->count <1){
-                $prod->delete();
+            if ($data->count == -1){
+                $prod->active = 0;
+                $prod->save();
                 return response()->json(Common::makeResponse('SUCCESS',[],'Product deleted'));
             }else{
                 $prod->name = $data->name;
@@ -189,6 +200,66 @@ class DataProcess extends Controller
                 $prod->save();
                 return response()->json(Common::makeResponse('SUCCESS',$prod,'Product edited'));
             }
+        }
+    }
+
+    public function get_room_types(Request $request){
+        $types = RoomType::where('active',1)->get();
+        return response()->json(Common::makeResponse('SUCCESS',$types ,'Get types of room'));
+    }
+    public function post_edit_type_room(Request $request){
+        $data = json_decode($request->getContent());
+        $type = RoomType::where('id',$data->type_id)->first();
+        if ($data->del){
+            $type->active = 0;
+            $type->save();
+        }else{
+            $type->name = $data->name;
+            $type->ratio = $data->ratio;
+            $type->save();
+        }
+        return response()->json(Common::makeResponse('SUCCESS',$type ,'Edit type of room success'));
+    }
+    public function post_add_type_room(Request $request){
+        $data = json_decode($request->getContent());
+        $type = new RoomType;
+        $type->name = $data->name;
+        $type->ratio = $data->ratio;
+        $type->save();
+        return response()->json(Common::makeResponse('SUCCESS',$type ,'Add type of room success'));
+    }
+    public function post_add_room(Request $request){
+        $data = json_decode($request->getContent());
+        $room = new Room;
+        $room->name = $data->name;
+        $room->type_id = $data->type_id;
+        $room->save();
+        return response()->json(Common::makeResponse('SUCCESS',$room ,'Add room success'));
+    }
+    public function post_edit_room(Request $request){
+        $data = json_decode($request->getContent());
+        $room = Room::where('id',$data->room_id)->first();
+        if ($data->del){
+            if ($room->state == 0){
+                $room->active = 0;
+                $room->save();
+            }
+        }else{
+            $room->name = $data->name;
+            $room->type_id = $data->type_id;
+            $room->save();
+        }
+        return response()->json(Common::makeResponse('SUCCESS',$room ,'Edit room success'));
+    }
+
+    public function get_value_month(Request $request){
+        if ($month = $request->input('month')){
+            $value = Bill::where('state',1)->whereMonth('paid_at',$month)->sum('value');
+            return response()->json(Common::makeResponse('SUCCESS',['value'=>$value],'Get month success'));
+        }else{
+            $now = Carbon::now();
+            $value = Bill::where('state',1)->whereMonth('paid_at',$now->month)->sum('value');
+            return response()->json(Common::makeResponse('SUCCESS',['value'=>$value] ,'Get month success'));
         }
     }
 }

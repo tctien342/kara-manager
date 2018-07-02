@@ -19,6 +19,7 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->integer('count')->default(0);
             $table->integer('is_time')->default(0);
+            $table->integer('active')->default(1);
             $table->timestamps();
         });
     }

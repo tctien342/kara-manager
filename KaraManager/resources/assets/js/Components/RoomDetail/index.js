@@ -321,13 +321,15 @@ export default class RoomDetail extends React.Component {
                     </div>
                 </div>}
                 {!this.state.bill.evens && <div id="openForm" className="openFormContainer container">
-                        <h1 className="timeSelectTitle">Chọn gói giờ</h1>
                         <div className="row">
+                            <div className="col-12"><h1 className="timeSelectTitle">Chọn gói giờ</h1></div>
+                        </div>
+                        <div className="row centerItems">
                             {this.state.renderTimeProd}
                         </div>
-                        <button 
+                        <div className="row"><button 
                         onClick={()=>{if (this.state.timeSel != -1) this.openRoom()}}
-                        className={this.state.timeSel>=0?"timeSelectButton" : 'timeSelectButtonHide'}>Mở phòng</button>
+                        className={this.state.timeSel>=0?"timeSelectButton" : 'timeSelectButtonHide'}>Mở phòng</button></div>
                 </div>}
                 <div className="row">
                     <div className="col-12 roomStatusTitle">
