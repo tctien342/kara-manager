@@ -17,8 +17,11 @@ export default class ApiHandler {
             make_bill: 'api/post_make_bill',
             edit_even: 'api/post_edit_even',
             add_even: 'api/post_add_even',
-            paid_bill: 'api/post_paid_bill'
+            paid_bill: 'api/post_paid_bill',
+            add_prod: 'api/post_add_prod',
+            edit_prod: 'api/post_edit_prod'
         }
+        this.manager.update.api = true
     }
 
     getData(link, callback, apiKey = this.manager.usertoken) {
@@ -100,7 +103,16 @@ export default class ApiHandler {
         return result
     }
 
-    initApi(){
+    updateAPI(){
+        setTimeout(()=>{
+            if (this.manager.update.api){
+                this.initApi()
+                this.updateAPI()
+            }
+        },5000)
+    }
+
+    initApi(callback=()=>{}){
         this.call_get('ds_room',{},(room)=>{
             this.manager.data.room = room
         })
@@ -112,7 +124,7 @@ export default class ApiHandler {
         })
         this.call_get('ds_prod',{},(prod)=>{
             this.manager.data.prod = prod
-            console.log(this.manager.data)
+            callback()
         })
     }
 

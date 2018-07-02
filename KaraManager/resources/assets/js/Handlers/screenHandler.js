@@ -10,12 +10,13 @@ export default class ScreenHandler{
         this.screen = screen
         this.setting = setting
         this.usertoken = window.token
-        this.api = new apiHandler(this)
         this.content = content
         this.update = {
             statusRoom: false,
-            detail: []
+            detail: [],
+            api: true
         }
+        this.api = new apiHandler(this)
         this.screens = {
            home: <Home manager={this}/>,
            room: <Room manager={this}/>,
@@ -30,6 +31,11 @@ export default class ScreenHandler{
             time: [],
             bill: []
         }
+    }
+
+    checkTime(i) {
+        if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+        return i;
     }
 
     render(namescreen,mode = 0){
@@ -79,12 +85,14 @@ export default class ScreenHandler{
         this.body = document.getElementById('BodyContainer')
         if (this.usertoken.length > 0){
             this.api.initApi()
+            this.api.updateAPI()
             document.getElementById('loginContainer').style.opacity = 0
             setTimeout(()=>{
+                console.log(this.data)
                 this.screen.setState({
                     login: false,
                     header: true,
-                },()=>this.onChangePos('room'))
+                },()=>this.onChangePos('package'))
             },300)
         }
     }

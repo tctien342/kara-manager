@@ -1,0 +1,25 @@
+.addProd{
+    font-size: 5rem;
+}
+.prodForm{
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px; 
+    padding-bottom: 10px;
+}
+.prodForm input{
+    text-align: left;
+    width: 100%;
+    padding-left: 10px;
+    font-size: 2.3rem;
+    border: 1px solid #ccc;
+}
+.aProd{
+    transition: all .3s ease-in-out;
+}
+.aProd:hover{
+    cursor: pointer;
+}
+.aProd:active{
+    transform: scale(0.95)
+}

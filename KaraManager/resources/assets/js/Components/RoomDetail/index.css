@@ -1,6 +1,7 @@
 .aDetail{
     height: 200px;
     padding: 10px;
+    position: relative;
 }
 .aDetail div{
     width: 100%;
@@ -10,6 +11,7 @@
     align-items: center;
     flex-direction: column;
     background: #3cc18f;
+    position: relative;
 }
 .aDetail h1, .aDetail h2{
     color: white
@@ -20,6 +22,15 @@
 .aDetail h2{
     font-size: 2.3rem;
 }
+.aDetail h3{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    color: white;
+}
+.used div:hover{
+    cursor: pointer;
+}
 .order div{
     background: #ccc;
     transition: all .3s ease-in-out;
@@ -29,4 +40,221 @@
 }
 .order div:active{
     transform: scale(0.95)
+}
+.settingFormContainer{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    background: rgba(255, 255, 255, .5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .3s ease-in-out;
+}
+#settingForm{
+    opacity: 0;
+}
+.settingForm{
+    width: 600px;
+    height: 300px;
+    background: white;
+    box-shadow: 0px 0px 20px #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.prodName{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    opacity: .7;
+    font-size: 3rem;
+}
+.settingButton{
+    width: 70px;
+    height: 50px;
+    position: absolute;
+    font-size: 1.8rem;
+    background: white;
+    opacity: .7;
+}
+.settingButton:hover{
+    background: #eee;
+}
+.settingButton:active{
+    transform: scale(0.9)
+}
+.huyButton{
+    right: 30px;
+    bottom: 30px;
+}
+.okButton{
+    right: 120px;
+    bottom: 30px;
+}
+.delButton{
+    left: 20px;
+    bottom: 30px;
+    color: red;
+}
+.editField{
+    width: 100%;
+    height: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+}
+.editField input{
+    width: 40%;
+    height: 50px;
+    font-size: 3rem;
+    text-align: center;
+    margin: 10px;
+}
+.editField button{
+    width: 50px;
+    height: 50px;
+    font-size: 3rem;
+    background: white;
+    opacity: .7;
+}
+.editField button:hover{
+    background: #eee;
+}
+.editField button:active{
+    transform: scale(0.9)
+}
+.prodCount{
+    position: absolute;
+    top: 25px;
+    right: 20px;
+    opacity: .7;
+}
+.openFormContainer{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    max-width: 100%;
+    background: rgba(255, 255, 255, .8);
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+.timeSelect{
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    margin: 20px;
+    padding: 10px;
+    transition: all .3s ease-in-out;
+    background: #3cc18f;
+}
+.timeSelect h1, .timeSelect h2{
+    color: white
+}
+
+.timeSelectTitle{
+    position: absolute;
+    top: 20%;
+    opacity: .7;
+}
+.timeActive{
+    background: white !important;
+    border: 1px solid #3cc18f !important;
+}
+.timeActive h1, .timeActive h2{
+    color: #3cc18f;
+}
+.timeSelectButton{
+    position: absolute;
+    width: 200px;
+    height: 80px;
+    font-size: 2rem;
+    bottom: 10%;
+    color: white;
+    background: #3cc18f;
+    transition: all .3s ease-in-out;
+}
+.timeSelectButtonHide:hover{
+    cursor:unset;
+}
+.timeSelectButton:active{
+    transform: scale(0.95); 
+}
+.timeSelectButtonHide{
+    position: absolute;
+    width: 200px;
+    height: 80px;
+    font-size: 2rem;
+    bottom: 10%;
+    color: white;
+    background: #ccc;
+}
+.buttonPaid{
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 80px;
+    height: 80px;
+    background: #3cc18f;
+    border-radius: 50%;
+    opacity: .9;
+    z-index: 100;
+}
+.buttonPaid:hover{
+    cursor: pointer;
+}
+.buttonPaid:active{
+    transform: scale(0.95)
+}
+.buttonPaid i{
+    font-size: 3rem;
+    color: white;
+}
+.paddingBottom{
+    padding-bottom: 50px;
+}
+.ainfoOfRoom{
+    height: 150px;
+    padding: 10px;
+}
+.editField .row{
+    width: 100%;
+}
+.aPaidInfo{
+    width: 100%;
+    height: 100%;
+    background: #3cc18f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+}
+.aPaidInfo h3{
+    color: white;
+}
+.aPaidInfo h4{
+    color: white;
+}
+.bigger{
+    height: max-content;
+    width: 60%;
+    padding-top: 60px;
+    padding-bottom: 90px;
+}
+.aPaidInfo h1{
+    position: absolute;
+    font-size: 1.5rem;
+    color: white;
+    bottom: 5px;
+    right: 10px;
 }

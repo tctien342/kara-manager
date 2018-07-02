@@ -45,8 +45,9 @@ export default class RoomStatus extends React.Component {
                             <div className="col-12 contentInfo">
                                 <h1>{ele.room.name}</h1>
                                 <h2>{this.handler.manager.getValueOfBillWithDot(ele.id)} đ</h2>
-                                <h3>{date.getHours()}:{date.getMinutes()}</h3>
+                                <h3>{date.getHours()}:{this.handler.manager.checkTime(date.getMinutes())}</h3>
                                 <h1 className="timeProdCardIndex">{ele.evens[0].prod.name}</h1>
+                                <h1 className="roomType">{ele.room.type.name}</h1>
                             </div>
                         </div>
                     </div>
@@ -70,6 +71,7 @@ export default class RoomStatus extends React.Component {
                             <div className="col-12 contentInfo">
                                 <h1>{ele.name}</h1>
                                 <i className="fas fa-plus"></i>
+                                <h1 className="roomType">{ele.type.name}</h1>
                             </div>
                         </div>
                     </div>

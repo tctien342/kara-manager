@@ -36,6 +36,8 @@ Route::group(['middleware' => 'jwt.auth'], function () {
 	Route::post('post_edit_even','DataProcess@post_edit_even');
 	Route::post('post_add_even','DataProcess@post_add_even');
 	Route::post('post_paid_bill','DataProcess@post_paid_bill');
+	Route::post('post_add_prod','DataProcess@post_add_prod');
+	Route::post('post_edit_prod','DataProcess@post_edit_prod');
 });
 //PUBLIC API
 Route::get('statistical','WebController@productStatistical');

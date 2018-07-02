@@ -151,4 +151,44 @@ class DataProcess extends Controller
         $bill->save();
         return response()->json(Common::makeResponse('SUCCESS',$bill ,'Room paid'));
     }
+
+    public function post_add_prod(Request $request){
+        $data = json_decode($request->getContent());
+        $prod = new Product;
+        $prod->value = $data->value;
+        $prod->name = $data->name;
+        if ($data->is_time) $prod->is_time = 1;else{
+            $prod->count = $data->count;
+        }
+        $prod->save();
+        return response()->json(Common::makeResponse('SUCCESS',$prod ,'Product made'));
+    }
+
+    public function post_edit_prod(Request $request){
+        $data = json_decode($request->getContent());
+        $prod = Product::where('id',$data->prod_id)->first();
+        if (!$prod) return response()->json(Common::makeResponse('ERROR',[],'Product not found'));
+        if ($prod->is_time == 1){
+            if ($data->is_time == 0){
+                $prod->delete();
+                return response()->json(Common::makeResponse('SUCCESS',[],'Time deleted'));
+            }else{
+                $prod->name = $data->name;
+                $prod->value = $data->value;
+                $prod->save();
+                return response()->json(Common::makeResponse('SUCCESS',$prod,'Time edited'));
+            }
+        }else{
+            if ($data->count <1){
+                $prod->delete();
+                return response()->json(Common::makeResponse('SUCCESS',[],'Product deleted'));
+            }else{
+                $prod->name = $data->name;
+                $prod->value = $data->value;
+                $prod->count = $data->count;
+                $prod->save();
+                return response()->json(Common::makeResponse('SUCCESS',$prod,'Product edited'));
+            }
+        }
+    }
 }

@@ -3,7 +3,7 @@
     height: 100%;
     overflow-y: auto;
     overflow-x: hidden;
-    padding-bottom: 50px;
+    position: relative;
 }
 .roomStatusTitle{
     height: 100px;
@@ -88,6 +88,14 @@
     position: absolute;
     top: 7px;
     right: 15px;
+    font-size: 2rem !important;
+    font-weight: 100;
+}
+.roomType{
+    color: white;
+    position: absolute;
+    bottom: 5px;
+    left: 15px;
     font-size: 2rem !important;
     font-weight: 100;
 }

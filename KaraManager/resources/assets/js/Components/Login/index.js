@@ -19,7 +19,7 @@ export default class Login extends React.Component {
     render() {
         return (
             <div id="loginContainer">
-                <img src={require('../../Assert/Images/loginB.jpg')}/>
+                {/* <img src={require('../../Assert/Images/loginB.jpg')}/> */}
                 <div id="loginField">
                     <h3>Đăng nhập</h3>
                     <input type='email' placeholder='Tên tài khoản' onChange={(eve)=>{this.setState({email: eve.target.value})}}/>
